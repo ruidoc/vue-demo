@@ -4,7 +4,7 @@
             <div slot="header" class="m_header">
                 <span>{{modal.title}}</span>
             </div>
-            <Tabs value="name1" style="padding: 0 20px">
+            <Tabs value="name1" style="padding: 0 20px" type="card">
                 <Tab-pane label="表扬" name="name1">
                     <div class="behav" v-for="(list,index) in rlist">
                         <div class="behav_icon" @click="add(index)">

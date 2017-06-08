@@ -7,13 +7,14 @@
             <student-list></student-list>
         </div>
         <div class="footer">
-            
+            <bottom-handle></bottom-handle>
         </div>
     </div>
 </template>
 <script>
     import TitleContent from '@/components/TitleContent'
     import StudentList from '@/components/StudentList'
+    import BottomHandle from '@/components/BottomHandle'
 
     var data = {}
     export default {
@@ -23,7 +24,8 @@
         },
         components: {
             TitleContent,
-            StudentList
+            StudentList,
+            BottomHandle
         }
     }
 </script>

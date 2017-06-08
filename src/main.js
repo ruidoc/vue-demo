@@ -14,11 +14,39 @@ Vue.use(Vuex)
 
 var store = new Vuex.Store({
     state: {
-        totleScore: 0
+        lists: [
+            {
+                id: 1,
+                name: '杨成功',
+                score: 3
+            },
+            {  
+                id: 2,
+                name: '王小贱',
+                score: 7
+            },
+            {
+                id: 3,
+                name: '阿葱',
+                score: 6
+            },
+            {
+                id: 4,
+                name: '阿城',
+                score: 5
+            }
+        ]
     },
     mutations: {
-        increment(state,score) {
-            state.totleScore = score
+        allAddScore(state,score) {
+            state.lists.forEach((item)=> {
+                item.score = parseInt(item.score)+parseInt(score)
+            })
+        },
+        resetScore(state) {
+            state.lists.forEach((item)=> {
+                item.score = 0
+            })
         }
     }
 })

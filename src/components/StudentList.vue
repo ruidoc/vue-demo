@@ -23,80 +23,7 @@
             title: '',
             sid: 0
         },
-        lists: [
-            {
-                name: '杨成功',
-                score: 34
-            },
-            {
-                name: '王小贱',
-                score: 37
-            },
-            {
-                name: '阿葱',
-                score: 65
-            },
-            {
-                name: '杨成功',
-                score: 43
-            },
-            {
-                name: '王小贱',
-                score: 88
-            },
-            {
-                name: '阿葱',
-                score: 55
-            },
-            {
-                name: '杨成功',
-                score: 27
-            },
-            {
-                name: '王小贱',
-                score: 16
-            },
-            {
-                name: '阿葱',
-                score: 24
-            },
-            {
-                name: '杨成功',
-                score: 34
-            },
-            {
-                name: '王小贱',
-                score: 37
-            },
-            {
-                name: '阿葱',
-                score: 65
-            },
-            {
-                name: '杨成功',
-                score: 43
-            },
-            {
-                name: '王小贱',
-                score: 88
-            },
-            {
-                name: '阿葱',
-                score: 55
-            },
-            {
-                name: '杨成功',
-                score: 27
-            },
-            {
-                name: '王小贱',
-                score: 16
-            },
-            {
-                name: '阿葱',
-                score: 24
-            },
-        ]
+        lists: []
     }
     export default {
         name: 'StudentList',
@@ -117,23 +44,13 @@
                 } else {
                     this.lists[data.sid].score -= data.score
                 }
-                this.$store.commit('increment',this.totalscore);
             }
         },
         components: {
             Comment
         },
-        computed: {
-            totalscore() {
-                let num = 0;
-                this.lists.forEach((item) => {
-                    num += item.score
-                })
-                return num;
-            }
-        },
-        mounted() {
-            this.$store.commit('increment',this.totalscore);
+        created() {
+            this.lists = this.$store.state.lists
         }
     }
 </script>

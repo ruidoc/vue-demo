@@ -4,7 +4,7 @@
             <Col span="8">
                 <div class="subj">
                     <h2>语文</h2>
-                    <div class="score">{{totleScore}}</div>
+                    <div class="score" @click="ping">{{totleScore}}</div>
                 </div>
             </Col>
             <Col span="8" class="tag">
@@ -28,9 +28,11 @@
                 </Dropdown>
             </Col>
         </Row>
+        <comment :modal="modal" @ping="allAddScore"></comment>
     </div>
 </template>
 <script>
+    import Comment from '@/components/Comment'
     var data = {
         cityList: [
             {
@@ -45,6 +47,11 @@
         tags: {
             'student': 'primary',
             'group': 'ghost',
+        },
+        modal: {
+            show: false,
+            title: '',
+            sid: 0
         }
     }
     
@@ -64,11 +71,34 @@
                 }
                 this.$Loading.finish();
             },
-            
+            allAddScore(info) {
+                let score
+                if(info.type == 1) {
+                    score = info.score;
+                } else {
+                    score = '-'+info.score;
+                }
+                this.$store.commit('allAddScore',score)
+            },
+            ping() {
+                this.modal = {
+                    show: true,
+                    title: '点评 全班同学',
+                    sid: 0
+                }
+            }
+        },
+        components: {
+            Comment
         },
         computed: {
             totleScore() {
-                return this.$store.state.totleScore
+                let num = 0;
+                let lists = this.$store.state.lists;
+                lists.forEach((item) => {
+                    num += parseInt(item.score)
+                })
+                return num;
             }
         }
     }
