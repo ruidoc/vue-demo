@@ -1,10 +1,10 @@
 # vue
 
-> 基于vue2+iviw2的改进版demo Edit
+> 基于vue2+iviw2的改进版demo
 
 ## Build Setup
 
-``` bash
+```
 # install dependencies
 npm install
 
