@@ -23,7 +23,7 @@
                         <Icon type="ios-arrow-down"></Icon>
                     </Button>
                     <Dropdown-menu slot="list">
-                        <Dropdown-item v-for="item in cityList" v-text="item.label"></Dropdown-item>
+                        <Dropdown-item v-for="clist in cityList" v-text="clist.label" :key="clist.id"></Dropdown-item>
                     </Dropdown-menu>
                 </Dropdown>
             </Col>

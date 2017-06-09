@@ -2,11 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router.js'
+import router from './router'
 
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
-import './theme/index.less';
+
+//npm install less less-loader style-loader
+import '!style-loader!css-loader!less-loader!./assets/index.less';
+
 Vue.use(iView);
 
 import Vuex from 'vuex'

@@ -6,11 +6,7 @@
 <script>
     export default {
         data(){
-            return {
-                auto:{
-                   height:0     
-                }
-            }
+            return data
         },
         method:{
 
