@@ -63,13 +63,10 @@
         methods: {
             tag(id) {
                 if (id == 1) {
-                    this.tags.student = 'primary'
-                    this.tags.group = 'ghost'
+                    this.$router.push('students')
                 } else {
-                    this.tags.student = 'ghost'
-                    this.tags.group = 'primary'
+                    this.$router.push('groups')
                 }
-                this.$Loading.finish();
             },
             allAddScore(info) {
                 let score
@@ -86,6 +83,17 @@
                     title: '点评 全班同学',
                     sid: 0
                 }
+            },
+            tagChange() {
+                let ul = this.$route.path
+                if (ul == '/students') {
+                    this.tags.student = 'primary'
+                    this.tags.group = 'ghost'
+                } else if(ul == '/groups') {
+
+                    this.tags.student = 'ghost'
+                    this.tags.group = 'primary'
+                }
             }
         },
         components: {
@@ -100,7 +108,16 @@
                 })
                 return num;
             }
+        },
+        created() {
+            this.tagChange()
+        },
+        watch: {
+            $route() {
+                this.tagChange()
+            }
         }
+
     }
 </script>
 <style scoped>

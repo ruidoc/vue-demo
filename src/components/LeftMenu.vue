@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+    var data = {}
     export default {
         data(){
             return data

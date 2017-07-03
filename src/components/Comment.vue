@@ -31,11 +31,11 @@
     var data = {
         rlist: [
             {
-                name: '学习积极',
+                name: '积极提问',
                 score: 2,
             },
             {
-                name: '上课提问',
+                name: '踊跃回答',
                 score: 1,
             }
 
@@ -83,7 +83,7 @@
         }
     }
 </script>
-<style>
+<style scoped>
     .m_header {
         font-size: 16px;
         color:#333;

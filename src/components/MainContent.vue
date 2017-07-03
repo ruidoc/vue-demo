@@ -3,9 +3,13 @@
         <div class="title">
             <title-content></title-content>
         </div>
+        
         <div class="students">
-            <student-list></student-list>
+            <transition name="fade">
+                <router-view></router-view>
+            </transition>
         </div>
+        
         <div class="footer">
             <bottom-handle></bottom-handle>
         </div>
@@ -13,7 +17,6 @@
 </template>
 <script>
     import TitleContent from '@/components/TitleContent'
-    import StudentList from '@/components/StudentList'
     import BottomHandle from '@/components/BottomHandle'
 
     var data = {}
@@ -24,8 +27,22 @@
         },
         components: {
             TitleContent,
-            StudentList,
             BottomHandle
+        },
+        watch: {
+            $route() {
+                this.$store.commit('init');
+                let ul = this.$route.path
+                if (ul == '/students') {
+                    this.$store.commit('changeStatus',{
+                        'role': 'students'
+                    });
+                } else if(ul == '/groups') {
+                    this.$store.commit('changeStatus',{
+                        'role': 'groups'
+                    });
+                } 
+            }
         }
     }
 </script>
@@ -45,6 +62,12 @@
         background: #fff;
         position: absolute;
         bottom: 0;
+        width: 100%;
+    }
+    .students {
+        position: absolute;
+        top: 80px;
+        bottom: 70px;
         width: 100%;
     }
 </style>

@@ -21,12 +21,11 @@
 <script>
     import Comment from '@/components/Comment'
     var data = {
-        //打分的弹框
         modal: {
             show: false,
             title: '',
             sid: 0
-        }
+        },
     }
     export default {
         name: 'StudentList',
@@ -62,7 +61,7 @@
         },
         computed: {
             lists() {
-                return this.$store.state.lists
+                return this.$store.state.groups
             },
             checked() {
                 return this.$store.state.status.checked
